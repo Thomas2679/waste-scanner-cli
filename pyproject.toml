@@ -1,0 +1,22 @@
+[project]
+name = "waste-scanner"
+version = "0.1.0"
+description = "Find forgotten AWS resources that are costing you money."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["boto3>=1.34"]
+keywords = ["aws", "cost", "finops", "ebs", "cleanup"]
+
+[project.optional-dependencies]
+dev = ["pytest", "moto[ec2,elbv2,elb,cloudwatch]>=5"]
+
+[project.scripts]
+waste-scanner = "waste_scanner.cli:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
